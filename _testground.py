@@ -15,8 +15,8 @@ Author: Adrian Sausenthaler (sausix)
 """
 
 from abc import abstractmethod  # Does hint PyCharm to missing abc implementations!
-# from PySide2.QtCore import QObject
-from PyQt5.QtCore import QObject
+from PySide2.QtCore import QObject
+# from PyQt5.QtCore import QObject
 
 
 # qmeta = type(QObject)  # <class 'Shiboken.ObjectType'>

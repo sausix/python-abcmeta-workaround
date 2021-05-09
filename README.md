@@ -1,4 +1,4 @@
-# abcmeta_qobject
+# python-abcmeta-workaround
 
 Recreated ABC (abstract base classes) in Python for compatibility with QObject and derivates of PySide2.
 
