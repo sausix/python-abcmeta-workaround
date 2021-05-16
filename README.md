@@ -24,7 +24,8 @@ class MyABC(metaclass=ABCMeta):
 
 
 class MyClass(MyABC):
-    """A class which does not implement all abstract base classes"""
+    """A class which does not implement all abstract methods of it's abstract base class"""
+# Commented out:
 #    def must_have(self):
 #        pass
 
