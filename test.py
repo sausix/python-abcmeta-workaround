@@ -3,7 +3,9 @@
 
 from FakeABC import FakeABC
 from PySide2.QtCore import QObject
-from abc import abstractmethod  # Does hint PyCharm to missing abc implementations!
+from abc import abstractmethod  # Does hint PyCharm (and maybe other IDEs) for missing abc implementations!
+
+# TODO: Real rests
 
 
 class HighestBaseClass(QObject, FakeABC):
@@ -24,6 +26,11 @@ class HighestBaseClass(QObject, FakeABC):
     def abc_func2(self):
         """Defining another abstract method"""
 
+    @staticmethod
+    @abstractmethod
+    def abc_static_method():
+        """Defining another abstract method"""
+
 
 class LowerBaseClass(HighestBaseClass):
     """Secondary base class adding some more abc methods and overwriting an existing one"""
@@ -35,16 +42,42 @@ class LowerBaseClass(HighestBaseClass):
     def abc_func1(self):
         """Redefining an abstractmethod"""
 
+    @classmethod
+    @abstractmethod
+    def abc_class_member(cls):
+        """Redefining an abstractmethod"""
+
+    @property
+    @abstractmethod
+    def some_getter(self) -> str:
+        pass
+
 
 class MyModule(LowerBaseClass):
     """Creating the final class which depends on all abc methods"""
+
+    abc_class_member = 1
 
     def __init__(self):
         print("init MyModule")
         super().__init__()  # Call to base class is mandatory
 
     def abc_func1(self):
-        """Implementing only one abstract method"""
+        pass
+
+    def abc_func2(self):
+        pass
+
+    def abc_lower_base_class_func(self):
+        pass
+
+    @staticmethod
+    def abc_static_method():
+        pass
+
+    @property
+    def some_getter(self):
+        return ""
 
 # Not defining other abstract methods will throw an exception on instantiation.
 # Uncomment them for testing.
@@ -53,6 +86,7 @@ class MyModule(LowerBaseClass):
 
 #    def abc_func2(self):
 #        pass
+
 
 print("Testing instantiation...")
 instance = MyModule()

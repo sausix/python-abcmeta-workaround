@@ -7,6 +7,9 @@ This is a wonky workaround. Not a perfect solution.
 Author: Adrian Sausenthaler (sausix)
 
 
+**New version**: Now supporting abstract staticmethods, classmethods and properties
+
+
 ### Abstract base classes?
 
 In short: They define rules for classes.
